@@ -57,7 +57,7 @@ public class App {
         FormDataParser formDataParser = new FormDataParser();
         CookieHelper cookieHelper = new CookieHelper();
         LoginAccesDAO loginAccesDAO = new LoginAccesDAO(connection);
-        server.createContext("/login", new Login(connection));
+        server.createContext("/login", new Login(loginAccesDAO, formDataParser, cookieHelper));
         server.createContext("/static", new Static());
         server.setExecutor(null); // creates a default executor
 
