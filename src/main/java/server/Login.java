@@ -24,10 +24,10 @@ public class Login implements HttpHandler {
     private FormDataParser formDataParser;
     private Optional<HttpCookie> cookie;
 
-    public Login(Connection connection) {
-        this.loginAccesDAO = new LoginAccesDAO(connection);
-        formDataParser = new FormDataParser();
-        cookieHelper = new CookieHelper();
+    public Login(LoginAccesDAO loginAccesDAO, FormDataParser formDataParser, CookieHelper cookieHelper) {
+        this.loginAccesDAO = loginAccesDAO;
+        this.formDataParser = formDataParser;
+        this.cookieHelper = cookieHelper;
     }
 
     @Override

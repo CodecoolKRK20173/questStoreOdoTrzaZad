@@ -2,11 +2,14 @@ package server;
 
 import com.sun.net.httpserver.HttpServer;
 import controllers.Connector;
+import controllers.dao.LoginAccesDAO;
 import server.adminJavaPages.ClassEditor;
 import server.adminJavaPages.ExpLvlEditor;
 import server.adminJavaPages.GreetAdmin;
 import server.adminJavaPages.MentorEditor;
 import server.codecoolerJavaPages.*;
+import server.helpers.CookieHelper;
+import server.helpers.FormDataParser;
 import server.mentorJavaPages.*;
 
 import java.net.InetSocketAddress;
@@ -51,6 +54,9 @@ public class App {
         server.createContext("/adminJavaPages/MentorEditor", new MentorEditor(connection));
         server.createContext("/adminJavaPages/ExpLvlEditor", new ExpLvlEditor(connection));
 
+        FormDataParser formDataParser = new FormDataParser();
+        CookieHelper cookieHelper = new CookieHelper();
+        LoginAccesDAO loginAccesDAO = new LoginAccesDAO(connection);
         server.createContext("/login", new Login(connection));
         server.createContext("/static", new Static());
         server.setExecutor(null); // creates a default executor
