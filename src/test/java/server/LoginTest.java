@@ -16,5 +16,12 @@ class LoginTest {
     @Mock
     private CookieHelper cookieHelper;
 
+    @Test public void loginHandlerRedirectsToCorrectUserPage(){
+
+    }
+
+    @Test public void loginHandlerRedirectsToTheSamePageIfUserProvidesInvalidInput(){
+
+    }
 
 }

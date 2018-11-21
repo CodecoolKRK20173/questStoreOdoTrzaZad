@@ -2,7 +2,6 @@ package controllers.dao;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -47,29 +46,23 @@ class LoginAccesDAOTest {
     }
 
     @Test
-    public void readLoginDataThrowsExceptionIfInputsAreEmpty(){
+    public void readLoginDataReturnsEmptyListIfInputsAreEmpty(){
         LoginAccesDAO loginAccesDAO = new LoginAccesDAO(connection);
 
-        Executable emptyEmail = () -> {
-            loginAccesDAO.readLoginData("", "abc");
-        };
-        Executable emptyPassword = () -> {
-            loginAccesDAO.readLoginData("abc", "");
-        };
+        List<Integer> emptyMailResult = loginAccesDAO.readLoginData("", "abc");
+        List<Integer> emptyPasswordResult = loginAccesDAO.readLoginData("abc", "");
 
-        assertThrows(Exception.class, emptyEmail);
-        assertThrows(Exception.class, emptyPassword);
+        assertTrue(emptyMailResult.isEmpty());
+        assertTrue(emptyPasswordResult.isEmpty());
     }
 
     @Test
-    public void readLoginDataThrowsExceptionWhenUserDoesntExists() throws SQLException {
+    public void readLoginDataReturnsEmptyListWhenUserDoesntExists() throws SQLException {
         when(resultSet.next()).thenReturn(false);
         LoginAccesDAO loginAccesDAO = new LoginAccesDAO(connection);
 
-        Executable invalidInput = () -> {
-            loginAccesDAO.readLoginData("xxx", "xxx");
-        };
+        List<Integer> invalidUserResult = loginAccesDAO.readLoginData("xxx", "xxx");
 
-        assertThrows(Exception.class, invalidInput);
+        assertTrue(invalidUserResult.isEmpty());
     }
 }
