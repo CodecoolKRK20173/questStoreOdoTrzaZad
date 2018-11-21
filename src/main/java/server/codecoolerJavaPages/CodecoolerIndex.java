@@ -72,6 +72,7 @@ public class CodecoolerIndex implements HttpHandler {
 
         // create a model that will be passed to a template
         JtwigModel model = JtwigModel.newModel();
+
         fillModelTwig(model, nickname, coins, coinsEverOwned, quest, room, team, name, surname, level);
         // render a template to a string
         String response = template.render(model);
