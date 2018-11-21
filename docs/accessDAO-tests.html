@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>LoginAccesDAO test docs</title>
+        <link rel="stylesheet" href="css/test-docs-style.css">
+    </head>
+    <body>
+        <wrapper>
+            <header>
+                <h1>LoginAccesDAO test docs</h1>
+                <p>Class tested: LoginAccesDAO</p>
+                <p>Method coverage: 42%</p>
+                <p>Line coverage: 23%</p>
+            </header>
+            <tests>
+                <div class="test">
+                    <p class="method">Test: readLoginDataReturnsCorrectData</p>
+                    <p>Checks if readLoginData method makes proper List with user id and its access level retrieved from DB</p>
+                </div>
+                <div class="test">
+                    <p class="method">Test: readLoginDataReturnsEmptyListIfInputsAreEmpty</p>
+                    <p>Checks if readLoginData method returns empty list when user entered empty email or passwrod</p>
+                </div>
+                <div class="test">
+                    <p class="method">Test: readLoginDataReturnsEmptyListWhenUserDoesntExists</p>
+                    <p>Checks if readLoginData method returns empty list when email or password entered by user doesn't exist in DB</p>
+                </div>
+            </tests>
+        </wrapper>
+    </body>
+</html>
