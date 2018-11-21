@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    margin: 5vh 2vw;
+}
+
+header h1{
+    margin-bottom: 1vh;
+}
+
+tests{
+    display: flex;
+    flex-direction: column;
+}
+
+.test{
+    margin: 1vh 2vw;
+    padding: 1vh 1vw;
+    border: 1px solid black;
+}
+
+.method{
+    font-size: 1.3em;
+    margin-bottom: 1vh;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Login test docs</title>
+        <link rel="stylesheet" href="css/test-docs-style.css">
+    </head>
+    <body>
+        <wrapper>
+            <header>
+                <h1>Login test docs</h1>
+                <p>Class tested: Login</p>
+                <p>Method coverage: 100%</p>
+                <p>Line coverage: 93%</p>
+            </header>
+            <tests>
+                <div class="test">
+                    <p class="method">Test: loginHandlerRedirectsToCodecoolerPage</p>
+                    <p>If email and password entered by user corresponds to existing account with <strong>codecooler</strong> privilages, Login class should redirect user to a handler: <strong>/codecoolerJavaPages/CodecoolerIndex</strong></p>
+                </div>
+                <div class="test">
+                    <p class="method">Test: loginHandlerRedirectsToMentorPage</p>
+                    <p>If email and password entered by user corresponds to existing account with <strong>mentor</strong> privilages, Login class should redirect user to a handler: <strong>/mentorJavaPages/MentorIndexPage</strong></p>
+                </div>
+                <div class="test">
+                    <p class="method">Test: loginHandlerRedirectsToAdminPage</p>
+                    <p>If email and password entered by user corresponds to existing account with <strong>admin</strong> privilages, Login class should redirect user to a handler: <strong>/adminJavaPages/GreetAdmin</strong></p>
+                </div>
+                <div class="test">
+                    <p class="method">Test: loginHandlerRedirectsToTheSamePageIfUserProvidesInvalidInput</p>
+                    <p>If email or password is incorrect or empty, Login class reloads login page.</p>
+                </div>
+            </tests>
+        </wrapper>
+    </body>
+</html>
