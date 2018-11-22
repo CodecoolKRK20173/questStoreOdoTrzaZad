@@ -1,5 +1,8 @@
 package server.codecoolerJavaPages;
 
-public class CodecoolerIndexTest {
+import org.junit.jupiter.api.BeforeEach;
+
+public class CodecoolerIndexTest{
+
 
 }
