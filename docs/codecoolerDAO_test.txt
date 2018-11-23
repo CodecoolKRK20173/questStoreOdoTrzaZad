@@ -1,0 +1,12 @@
+Tests in CodecoolerDAO class
+Covered 5 methods of 25 (20%)
+Covered 17% lines of given class
+
+Covering readCoins() method are tests:
+- readCoinsReturnsValidNumber()
+- readCoinsThrowsNullPointerExceptionWhenWrongQuery()
+- redCoinsReturns0WhenNoCodecoolerFound()
+
+Covering getCodecoolerModel():
+- getCodecoolerModelReturnsValidModel()
+- getCodecoolerModelReturnsNullWhenWrongCodecoolerId()
