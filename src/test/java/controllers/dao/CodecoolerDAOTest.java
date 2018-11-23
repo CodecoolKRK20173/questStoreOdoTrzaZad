@@ -43,12 +43,18 @@ public class CodecoolerDAOTest {
     }
 
     @Test
-    public void readCoinsThrowsNullPointerExceptionWhenCodecoolerDoesntExist() throws SQLException {
-        /**I propose a change not to catch SQLExceptions so early and throw them with appropriate message, than actually
-         *  catch them higher so user would know what happened :) and omit creating result sets as null :) */
+    public void readCoinsThrowsNullPointerExceptionWhenWrongQuery() throws SQLException {
 
         when(statement.executeQuery(anyString())).thenThrow(new SQLException());
         assertThrows(NullPointerException.class, () -> (new CodecoolerDAO(connection)).readCoins(-1));
+    }
+
+    @Test
+    public void redCoinsReturns0WhenNoCodecoolerFound() throws SQLException {
+        when(statement.executeQuery(anyString())).thenReturn(resultSet);
+        when(resultSet.next()).thenReturn(false);
+
+        assertEquals(0, (new CodecoolerDAO(connection)).readCoins(1));
     }
 
     @Test
@@ -95,5 +101,12 @@ public class CodecoolerDAOTest {
         assertEquals(room, model.getRoom());
         assertEquals(expLevel, model.getExpLevel());
         assertEquals(coolcoins, model.getCoolcoins());
+    }
+
+    @Test
+    public void getCodecoolerModelReturnsNullWhenWrongCodecoolerId() throws SQLException{
+        when(statement.executeQuery(anyString())).thenReturn(resultSet);
+        when(resultSet.next()).thenReturn(false);
+        assertEquals(null, (new CodecoolerDAO(connection)).getCodecoolerModel(1));
     }
 }
