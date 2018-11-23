@@ -1,12 +1,16 @@
 Tests in CodecoolerDAO class
 Covered 5 methods of 25 (20%)
-Covered 17% lines of given class
+Covered 42/243 lines of given class (17%) 
 
 Covering readCoins() method are tests:
 - readCoinsReturnsValidNumber()
+	tests readCoins() if returns valid number of coins when existing codecoolerId
 - readCoinsThrowsNullPointerExceptionWhenWrongQuery()
+	tests readCoins() if throws nullpointer when wrong query implemented
 - redCoinsReturns0WhenNoCodecoolerFound()
-
+	tests redCoins() if returns 0 when called with non-existing id
 Covering getCodecoolerModel():
 - getCodecoolerModelReturnsValidModel()
+	tests getModel() if returns valid model when called with existing id
 - getCodecoolerModelReturnsNullWhenWrongCodecoolerId()
+	tests getModel() if returns null when called with non-existing id
