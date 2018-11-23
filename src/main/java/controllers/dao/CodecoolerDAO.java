@@ -18,7 +18,6 @@ public class CodecoolerDAO implements CodecoolerDAOInterface {
 
     @Override
     public int readCoins(int codecoolerId) {
-
         String query = "SELECT coolcoins FROM codecoolers WHERE codecooler_id = " + codecoolerId + ";";
         ResultSet resultSet = getResultSet(query);
         int coins = 0;
